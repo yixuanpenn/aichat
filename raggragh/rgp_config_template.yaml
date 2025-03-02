@@ -1,0 +1,43 @@
+## 配置
+
+llm:
+  type: "ollama"
+  # model_name: "qwen2.5:7b"
+  # model_name: "llama3.1:8b"
+  # model_name: "qwen2.5:14b"
+  # model_name: "deepseek-r1:70b"
+  model_name: "llama3.3"
+  base_url: Your Ollama Base URL
+  parameters:
+    temperature: 0.7
+    top_p: 0.95
+    repeat_penalty: 1.05
+    num_thread: 4
+    timeout: 600
+    num_ctx: 65536
+    num_predict: -1
+    stop: null
+    num_keep: -1
+    stream: True
+    think: false
+
+embeddings:
+  type: "local"
+  model_name: "/Users/penn/models/bge-large-zh-v1.5"  # 中文embedding模型
+  # model_name: "/Users/johnllm/llms/bge-large-zh-v1.5"
+  parameters:
+    device: "auto"  # 将自动选择最佳设备
+    normalize_embeddings: True
+
+graph:
+  similarity_threshold: 0.6
+  max_nodes: 10
+  nebula:
+    space: "langchain"
+    username: "root"
+    password: "nebula"
+    # address: "127.0.0.1"
+    # port: 9669
+    address: Your Nebula Graph Address
+    port: 13333
+    session_pool_size: 30

@@ -1,0 +1,50 @@
+# 数据库配置
+database:
+  host: localhost
+  port: 5432
+  name: penn #johnllm
+  user: postgres
+  password: ""
+  
+# 向量数据库配置
+vector_store:
+  collections:
+    财务报告: finance_report
+    人事档案: hr_documents
+    技术文档: tech_docs
+    会议记录: meeting_minutes
+    规章制度: regulations
+    其他文档: misc_docs
+  chunk_size: 500
+  chunk_overlap: 50
+  
+# 模型配置
+model:
+  embedding:
+    path: /Users/penn/models/bge-large-zh-v1.5 #/Users/johnllm/llms/bge-large-zh-v1.5
+    device: mps  # mps, cpu, cuda
+    normalize: true
+  llm:
+    name: qwen2.5:7b #qwen2.5:14b
+    base_url: http://localhost:11434
+    temperature: 0.1
+    
+# 提示词配置
+prompts:
+  qa_template: |
+    基于上下文回答问题：
+    
+    上下文：{context}
+    
+    问题：{question}
+    
+    回答：
+
+# 文件处理配置
+document:
+  supported_types:
+    - .pdf
+    - .doc
+    - .docx
+    - .csv
+  max_file_size: 52428800  #50MB 
