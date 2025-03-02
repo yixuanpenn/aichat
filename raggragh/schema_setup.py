@@ -1,5 +1,6 @@
 from nebula3.gclient.net import ConnectionPool
 from nebula3.Config import Config
+from langchain_community.graphs import NebulaGraph
 
 def create_and_check_schema():
     # 配置连接池
